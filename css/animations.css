@@ -1,1 +1,287 @@
-/* StageFinder Nairobi: keyframes and motion rules */
+/* ==========================================================================
+   StageFinder Nairobi: animations.css
+   Every keyframe and motion rule lives here. Motion is only switched on
+   for people who have not asked for reduced motion, and only transform,
+   opacity and (for the SVG lane line) stroke-dashoffset are animated so
+   it stays smooth on low-end phones.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Keyframes
+   -------------------------------------------------------------------------- */
+@keyframes page-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(1.25rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lane-draw {
+  from { stroke-dashoffset: 1200; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes matatu-drive {
+  0%   { transform: translateX(-900px); }
+  82%  { transform: translateX(12px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes wheel-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(3960deg); }
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(2rem) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes arrival-pulse {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.035); }
+  50%  { transform: scale(0.995); }
+  75%  { transform: scale(1.015); }
+  100% { transform: scale(1); }
+}
+
+@keyframes badge-pop {
+  from { opacity: 0; transform: translateY(-0.5rem) scale(0.6); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes drop-in {
+  from { opacity: 0; transform: translateY(-0.5rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   2. Motion, only when the user has no reduced-motion preference
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Page load: content fades in, intro text slides up */
+  main {
+    animation: page-fade 500ms var(--ease-out) both;
+  }
+
+  .page-intro .container > *,
+  .hero__inner > * {
+    animation: rise 700ms var(--ease-out) both;
+  }
+
+  .page-intro .container > :nth-child(2),
+  .hero__inner > :nth-child(2) {
+    animation-delay: 80ms;
+  }
+
+  .page-intro .container > :nth-child(3),
+  .hero__inner > :nth-child(3) {
+    animation-delay: 160ms;
+  }
+
+  .hero__inner > :nth-child(4) {
+    animation-delay: 240ms;
+  }
+
+  /* Hero: the lane line draws in, then the matatu drives in and parks */
+  .lane-reveal {
+    animation: lane-draw 1.6s var(--ease-in-out) 300ms both;
+  }
+
+  .matatu {
+    animation: matatu-drive 2.8s var(--ease-out) 600ms both;
+  }
+
+  .matatu-wheel {
+    animation: wheel-spin 2.8s var(--ease-out) 600ms both;
+  }
+
+  /* Route ticker: slow loop that pauses on hover, focus or the toggle */
+  .ticker__track {
+    animation: ticker-scroll 50s linear infinite;
+  }
+
+  .ticker:hover .ticker__track,
+  .ticker:focus-within .ticker__track,
+  .ticker__toggle:checked ~ .ticker__viewport .ticker__track {
+    animation-play-state: paused;
+  }
+
+  /* Navigation: animated underline and menu icon */
+  .site-nav a::after {
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  .nav-toggle__icon::before,
+  .nav-toggle__icon::after {
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  /* Mobile menu slides open; visibility flips after the slide closes */
+  .site-nav {
+    transition:
+      opacity var(--dur-base) var(--ease-out),
+      transform var(--dur-base) var(--ease-out),
+      visibility 0s linear var(--dur-base);
+  }
+
+  .nav-toggle:checked ~ .site-nav {
+    transition-delay: 0s;
+  }
+
+  @media (max-width: 47.99em) {
+    .nav-toggle:checked ~ .site-nav li {
+      animation: rise 400ms var(--ease-out) both;
+    }
+
+    .nav-toggle:checked ~ .site-nav li:nth-child(2) { animation-delay: 40ms; }
+    .nav-toggle:checked ~ .site-nav li:nth-child(3) { animation-delay: 80ms; }
+    .nav-toggle:checked ~ .site-nav li:nth-child(4) { animation-delay: 120ms; }
+    .nav-toggle:checked ~ .site-nav li:nth-child(5) { animation-delay: 160ms; }
+    .nav-toggle:checked ~ .site-nav li:nth-child(6) { animation-delay: 200ms; }
+  }
+
+  .skip-link {
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+
+  /* Buttons and chips lift slightly */
+  .button,
+  .jump-nav a,
+  .stage-card__routes a,
+  .choice,
+  a.route-badge {
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+
+  .button:hover,
+  .button:focus-visible,
+  .jump-nav a:hover,
+  .jump-nav a:focus-visible,
+  .stage-card__routes a:hover,
+  .stage-card__routes a:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .button:active,
+  .jump-nav a:active,
+  .stage-card__routes a:active {
+    transform: translateY(1px);
+  }
+
+  .button__arrow {
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  .button:hover .button__arrow,
+  .button:focus-visible .button__arrow,
+  .direction-card:hover .button__arrow,
+  .direction-card:focus-within .button__arrow {
+    transform: translateX(4px);
+  }
+
+  .button[href^="#"]:hover .button__arrow,
+  .button[href^="#"]:focus-visible .button__arrow {
+    transform: translateY(3px);
+  }
+
+  /* Direction cards: lift and tilt, with a coloured sweep behind the badge */
+  .direction-card {
+    transition: transform 380ms var(--ease-out);
+  }
+
+  .direction-card:hover,
+  .direction-card:focus-within {
+    transform: translateY(-6px) rotate(-0.6deg);
+  }
+
+  .direction-card:nth-child(even):hover,
+  .direction-card:nth-child(even):focus-within {
+    transform: translateY(-6px) rotate(0.6deg);
+  }
+
+  .direction-card__top::before {
+    transition: transform 480ms var(--ease-out);
+  }
+
+  .direction-card:hover .direction-card__top::before,
+  .direction-card:focus-within .direction-card__top::before {
+    transform: scaleX(1);
+  }
+
+  .direction-card .route-badge {
+    transition: transform 380ms var(--ease-out);
+  }
+
+  .direction-card:hover .route-badge,
+  .direction-card:focus-within .route-badge {
+    transform: scale(1.08) rotate(-4deg);
+  }
+
+  /* Stage card arrival pulse when it becomes the :target */
+  .stage-card:target {
+    animation: arrival-pulse 1.2s var(--ease-out) 400ms 2 both;
+  }
+
+  .stage-card:target .stage-card__arrived {
+    animation: badge-pop 500ms var(--ease-out) 300ms both;
+  }
+
+  /* FAQ answers drop in; the plus folds into a minus */
+  .faq__item[open] .faq__answer {
+    animation: drop-in 320ms var(--ease-out) both;
+  }
+
+  .faq__item summary::after {
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  /* Scroll-driven reveal. Only in browsers that support view timelines;
+     everywhere else content is simply visible. The fill mode is
+     "backwards" so hover transforms still work once a card is revealed. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear backwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Reduced motion: switch everything off
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* The ticker becomes a static row that can be scrolled sideways */
+  .ticker__toggle,
+  .ticker__control,
+  .ticker__list[aria-hidden="true"],
+  .ticker__viewport::before,
+  .ticker__viewport::after {
+    display: none;
+  }
+
+  .ticker__viewport {
+    overflow-x: auto;
+  }
+}

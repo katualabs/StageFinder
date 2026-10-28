@@ -1429,3 +1429,8 @@ a.route-badge:hover {
   align-items: center;
   gap: var(--space-s) var(--space-m);
 }
+
+.ticker__viewport:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: -3px;
+}
