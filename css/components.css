@@ -346,6 +346,7 @@ a.route-badge:hover {
 .direction-card--ngong   { --accent: var(--color-stage); }
 .direction-card--waiyaki { --accent: var(--color-sky); }
 .direction-card--jogoo   { --accent: var(--color-ink); }
+.direction-card--all     { --accent: var(--color-route-ink); }
 
 /* Card top strip: a resting accent bar, plus a sweep layer that fills
    the strip with the accent colour on hover (see animations.css) */
@@ -1433,4 +1434,241 @@ a.route-badge:hover {
 .ticker__viewport:focus-visible {
   outline: 3px solid var(--color-ink);
   outline-offset: -3px;
+}
+
+/* Very small screens (320px class phones) */
+@media (max-width: 24em) {
+  .route-table {
+    font-size: 0.8125rem;
+  }
+
+  .route-table th,
+  .route-table td {
+    padding-inline: 0.25rem;
+    hyphens: auto;
+  }
+
+  .route-table thead th {
+    letter-spacing: 0;
+  }
+
+  .route-table .peak-label,
+  .route-table .offpeak-label {
+    padding-inline: 0.3rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.03em;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. Print: a clean, ink-friendly sheet. On routes.html the five
+   direction tables flow into two columns so they fit on one A4 page.
+   -------------------------------------------------------------------------- */
+@media print {
+  @page {
+    margin: 12mm;
+  }
+
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body {
+    font-size: 10pt;
+    line-height: 1.35;
+  }
+
+  .skip-link,
+  .nav-toggle,
+  .nav-toggle__label,
+  .site-nav,
+  .road-stripe,
+  .hero__art,
+  .hero__actions,
+  .ticker,
+  .jump-nav,
+  .routes-tools,
+  .toc,
+  .direction-card__cta,
+  .stage-card__img,
+  .form,
+  .site-footer {
+    display: none !important;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .section,
+  .section--tight {
+    padding-block: 4mm;
+  }
+
+  .site-header {
+    border-bottom: 2pt solid #000;
+  }
+
+  .site-header__inner {
+    min-height: 0;
+    padding-block: 2mm;
+  }
+
+  .wordmark__badge {
+    border: 1.5pt solid #000;
+  }
+
+  .page-intro {
+    padding-block: 3mm;
+    border-bottom: 1pt solid #000;
+  }
+
+  .page-intro h1,
+  .hero__title {
+    max-width: none;
+    font-size: 18pt;
+  }
+
+  .lead,
+  .hero__lead {
+    font-size: 10pt;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .route-badge,
+  .peak-label,
+  .offpeak-label,
+  .unverified {
+    border: 1pt solid #000;
+  }
+
+  .notice {
+    padding: 2mm 3mm;
+    border: 1pt solid #000;
+    border-left-width: 3pt;
+  }
+
+  .notice h2 {
+    font-size: 11pt;
+  }
+
+  /* Routes: two-column route sheet */
+  .routes-layout {
+    display: block;
+    columns: 2;
+    column-gap: 8mm;
+  }
+
+  .routes-layout > .notice {
+    column-span: all;
+    margin-bottom: 4mm;
+  }
+
+  .route-section {
+    margin: 0 0 4mm;
+    break-inside: avoid;
+  }
+
+  .route-section__header {
+    gap: 0;
+    margin-bottom: 1mm;
+    padding-left: 2mm;
+    border-left-width: 3pt;
+    border-left-color: #000;
+  }
+
+  .route-section__header h2 {
+    font-size: 12pt;
+  }
+
+  .route-section__header .direction-card__compass,
+  .route-section__header > p:last-child,
+  .route-table caption {
+    display: none;
+  }
+
+  .route-table {
+    font-size: 8.5pt;
+    border: 1pt solid #000;
+  }
+
+  .route-table th,
+  .route-table td {
+    padding: 0.8mm 1.5mm;
+    border-bottom: 0.5pt solid #999;
+  }
+
+  .route-table thead th {
+    position: static;
+    font-size: 7.5pt;
+    border-bottom: 1pt solid #000;
+  }
+
+  .route-table td a {
+    min-height: 0;
+  }
+
+  .route-table .route-badge {
+    min-height: 0;
+    min-width: 0;
+    font-size: 8pt;
+  }
+
+  .fare__row {
+    display: inline-flex;
+    gap: 1mm;
+    white-space: nowrap;
+  }
+
+  .fare__row + .fare__row {
+    margin: 0 0 0 2mm;
+  }
+
+  .route-table .peak-label,
+  .route-table .offpeak-label {
+    padding: 0 1mm;
+    font-size: 6.5pt;
+  }
+
+  .page-intro .eyebrow,
+  .page-intro .lead {
+    display: none;
+  }
+
+  .notice p {
+    max-width: none;
+  }
+
+  /* Cards print as simple bordered boxes */
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .direction-card,
+  .stage-card,
+  .steps li,
+  .faq__item,
+  .glossary div,
+  .fact-card,
+  .callout {
+    border: 1pt solid #000;
+    break-inside: avoid;
+    transform: none !important;
+  }
+
+  .stage-card__sign {
+    margin-top: 0;
+    outline: 0;
+    border: 1.5pt solid #000;
+  }
 }
