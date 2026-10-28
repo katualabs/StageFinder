@@ -780,3 +780,133 @@ a.route-badge:hover {
     justify-items: start;
   }
 }
+
+/* --------------------------------------------------------------------------
+   9. Stages page: stage cards and :target highlight
+   -------------------------------------------------------------------------- */
+.stages-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-l);
+}
+
+.stage-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-l);
+  background-color: var(--color-paper);
+  box-shadow: var(--shadow-s);
+  scroll-margin-top: var(--space-l);
+}
+
+.stage-card__img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: #E9E4D8;
+}
+
+.stage-card__body {
+  display: grid;
+  gap: var(--space-s);
+  padding: var(--space-m);
+}
+
+/* Stage name styled as a green road signboard (white on stage 4.8:1) */
+.stage-card__sign {
+  justify-self: start;
+  display: grid;
+  gap: 0.15rem;
+  margin-top: -2.75rem;
+  padding: var(--space-2xs) var(--space-s) 0.6rem;
+  border-radius: var(--radius-m);
+  background-color: var(--color-stage);
+  color: var(--color-paper);
+  font-size: var(--step-2);
+  outline: 2px solid var(--color-paper);
+  outline-offset: -6px;
+  box-shadow: var(--shadow-m);
+}
+
+.stage-card__sign-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.stage-card__facts {
+  display: grid;
+  gap: var(--space-s);
+}
+
+.stage-card__facts dt {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-stage-ink);
+}
+
+.stage-card__facts dd {
+  margin: 0;
+}
+
+.stage-card__routes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-3xs);
+}
+
+.stage-card__routes a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.25rem 0.7rem 0.25rem 0.3rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-m);
+  color: var(--color-ink);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.stage-card__routes a:hover {
+  border-color: var(--color-ink);
+  background-color: var(--color-road);
+}
+
+/* Arrival highlight when the card is the URL fragment target */
+.stage-card__arrived {
+  display: none;
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  z-index: 1;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-signal);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-m);
+}
+
+.stage-card:target {
+  border-color: var(--color-ink);
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 9px var(--color-signal), var(--shadow-l);
+}
+
+.stage-card:target .stage-card__arrived {
+  display: block;
+}

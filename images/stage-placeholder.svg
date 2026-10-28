@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <rect width="640" height="360" fill="#E9E4D8"/>
+  <rect y="250" width="640" height="110" fill="#2A2A31"/>
+  <rect y="244" width="640" height="8" fill="#FFC145"/>
+  <path d="M0 248 H640" stroke="#1B1B1F" stroke-width="8" stroke-dasharray="32 32"/>
+  <path d="M0 305 H640" stroke="#FFC145" stroke-width="5" stroke-dasharray="40 28"/>
+  <g fill="#1B1B1F" opacity="0.08">
+    <rect x="20" y="120" width="70" height="124"/>
+    <rect x="100" y="80" width="56" height="164"/>
+    <rect x="470" y="96" width="64" height="148"/>
+    <rect x="546" y="140" width="80" height="104"/>
+  </g>
+  <rect x="300" y="110" width="10" height="138" fill="#1B1B1F"/>
+  <rect x="210" y="56" width="190" height="70" rx="10" fill="#17806D"/>
+  <rect x="218" y="64" width="174" height="54" rx="6" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+  <rect x="236" y="80" width="80" height="8" rx="4" fill="#FFFFFF"/>
+  <rect x="236" y="96" width="120" height="8" rx="4" fill="#FFFFFF" opacity="0.7"/>
+  <g transform="translate(360 176)">
+    <path d="M6 58 V20 Q6 8 18 8 H140 Q152 8 160 18 L176 38 Q182 42 182 50 V58 Q182 64 176 64 H12 Q6 64 6 58 Z" fill="#E4572E"/>
+    <rect x="18" y="16" width="24" height="16" rx="3" fill="#1B1B1F"/>
+    <rect x="48" y="16" width="24" height="16" rx="3" fill="#1B1B1F"/>
+    <rect x="78" y="16" width="24" height="16" rx="3" fill="#1B1B1F"/>
+    <rect x="108" y="16" width="20" height="16" rx="3" fill="#1B1B1F"/>
+    <path d="M134 16 H150 L164 36 H134 Z" fill="#1B1B1F"/>
+    <rect x="6" y="40" width="176" height="6" fill="#FFC145"/>
+    <circle cx="42" cy="64" r="12" fill="#1B1B1F"/>
+    <circle cx="146" cy="64" r="12" fill="#1B1B1F"/>
+    <circle cx="42" cy="64" r="5" fill="#D8D1C1"/>
+    <circle cx="146" cy="64" r="5" fill="#D8D1C1"/>
+  </g>
+  <rect x="24" y="24" width="150" height="30" rx="15" fill="#1B1B1F"/>
+  <text x="99" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#FFC145" letter-spacing="1">PHOTO TO COME</text>
+</svg>
