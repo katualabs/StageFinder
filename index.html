@@ -43,13 +43,237 @@
   </header>
 
   <main id="main" tabindex="-1">
-    <header class="page-intro">
-      <div class="container">
+    <section class="hero on-dark" aria-labelledby="hero-title">
+      <div class="hero__inner container">
         <p class="eyebrow">Nairobi CBD matatu guide</p>
-        <h1>Where are you going?</h1>
-        <p class="lead">Pick your direction and we will point you to the right stage.</p>
+        <h1 class="hero__title" id="hero-title">Where are you <span class="hero__highlight">going?</span></h1>
+        <p class="hero__lead">Find the right stage, the route number to look for and roughly what to pay, before you step into town.</p>
+        <div class="hero__actions">
+          <a class="button button--signal" href="#directions">Choose your direction <span class="button__arrow" aria-hidden="true">&darr;</span></a>
+          <a class="button button--ghost" href="stages.html">Browse CBD stages</a>
+        </div>
       </div>
-    </header>
+
+      <div class="hero__art" aria-hidden="true">
+        <svg class="hero__road" viewBox="0 0 1200 240" preserveAspectRatio="xMidYMax slice" focusable="false">
+          <defs>
+            <mask id="lane-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="240">
+              <path class="lane-reveal" d="M0 183 H1200" stroke="#fff" stroke-width="14" fill="none"/>
+            </mask>
+          </defs>
+
+          <!-- City skyline -->
+          <g fill="#F4F1EA" opacity="0.09">
+            <rect x="40" y="70" width="60" height="50"/>
+            <rect x="110" y="48" width="40" height="72"/>
+            <rect x="160" y="86" width="70" height="34"/>
+            <rect x="250" y="64" width="45" height="56"/>
+            <rect x="310" y="90" width="80" height="30"/>
+            <rect x="410" y="44" width="55" height="76"/>
+            <rect x="530" y="26" width="34" height="94"/>
+            <ellipse cx="547" cy="26" rx="30" ry="7"/>
+            <rect x="544" y="6" width="6" height="16"/>
+            <rect x="600" y="12" width="42" height="108"/>
+            <rect x="652" y="60" width="60" height="60"/>
+            <rect x="730" y="76" width="55" height="44"/>
+            <rect x="795" y="94" width="50" height="26"/>
+            <rect x="860" y="40" width="50" height="80"/>
+            <rect x="920" y="70" width="80" height="50"/>
+            <rect x="1020" y="54" width="45" height="66"/>
+            <rect x="1080" y="82" width="90" height="38"/>
+          </g>
+
+          <!-- Kerb, asphalt and edge lines -->
+          <rect x="0" y="116" width="1200" height="10" fill="#FFC145"/>
+          <path d="M0 121 H1200" stroke="#1B1B1F" stroke-width="10" stroke-dasharray="40 40"/>
+          <rect x="0" y="126" width="1200" height="114" fill="#2A2A31"/>
+          <path d="M0 136 H1200 M0 230 H1200" stroke="#F4F1EA" stroke-width="3" opacity="0.55"/>
+
+          <!-- Centre lane line, revealed by the mask -->
+          <path class="lane-line" d="M0 183 H1200" stroke="#FFC145" stroke-width="6" stroke-dasharray="48 32" mask="url(#lane-mask)"/>
+
+          <!-- Matatu, parked at its final position -->
+          <g transform="translate(600 141)">
+            <g class="matatu">
+              <ellipse cx="100" cy="82" rx="92" ry="5" fill="#000" opacity="0.35"/>
+              <rect x="26" y="2" width="108" height="5" rx="2" fill="#1B1B1F"/>
+              <path d="M34 7 V11 M70 7 V11 M106 7 V11" stroke="#1B1B1F" stroke-width="3"/>
+              <path d="M8 62 V22 Q8 10 20 10 H150 Q162 10 170 20 L188 42 Q194 46 194 54 V62 Q194 68 188 68 H14 Q8 68 8 62 Z" fill="#E4572E"/>
+              <rect x="20" y="18" width="24" height="18" rx="3" fill="#1B1B1F"/>
+              <rect x="50" y="18" width="24" height="18" rx="3" fill="#1B1B1F"/>
+              <rect x="80" y="18" width="24" height="18" rx="3" fill="#1B1B1F"/>
+              <rect x="110" y="18" width="24" height="18" rx="3" fill="#1B1B1F"/>
+              <path d="M142 18 H160 L176 40 H142 Z" fill="#1B1B1F"/>
+              <path d="M22 21 L30 21 L24 32 Z M52 21 L60 21 L54 32 Z M82 21 L90 21 L84 32 Z M112 21 L120 21 L114 32 Z" fill="#F4F1EA" opacity="0.18"/>
+              <rect x="8" y="44" width="186" height="7" fill="#FFC145"/>
+              <rect x="8" y="52" width="186" height="3" fill="#17806D"/>
+              <path d="M138 20 V66" stroke="#1B1B1F" stroke-opacity="0.35" stroke-width="2"/>
+              <rect x="186" y="47" width="8" height="6" rx="2" fill="#FFF4C2"/>
+              <rect x="8" y="47" width="5" height="6" rx="1" fill="#B83A15"/>
+              <g transform="translate(46 68)">
+                <g class="matatu-wheel">
+                  <circle r="13" fill="#1B1B1F"/>
+                  <circle r="6" fill="#D8D1C1"/>
+                  <rect x="-1.5" y="-6" width="3" height="12" fill="#1B1B1F"/>
+                </g>
+              </g>
+              <g transform="translate(156 68)">
+                <g class="matatu-wheel">
+                  <circle r="13" fill="#1B1B1F"/>
+                  <circle r="6" fill="#D8D1C1"/>
+                  <rect x="-1.5" y="-6" width="3" height="12" fill="#1B1B1F"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- VERIFY: route numbers and destinations in the ticker -->
+    <section class="ticker" aria-labelledby="ticker-title">
+      <h2 class="visually-hidden" id="ticker-title">Popular routes</h2>
+      <input type="checkbox" id="ticker-pause" class="ticker__toggle visually-hidden">
+      <label for="ticker-pause" class="ticker__control">
+        <span class="ticker__when-playing">Pause</span>
+        <span class="ticker__when-paused">Play</span>
+        <span class="visually-hidden">route ticker</span>
+      </label>
+      <div class="ticker__viewport">
+        <div class="ticker__track">
+          <ul class="ticker__list" role="list">
+            <li><span class="route-badge">45</span> Githurai 45</li>
+            <li><span class="route-badge">34</span> JKIA Airport</li>
+            <li><span class="route-badge">111</span> Ngong Town</li>
+            <li><span class="route-badge">105</span> Kikuyu</li>
+            <li><span class="route-badge">58</span> Buruburu</li>
+            <li><span class="route-badge">44</span> Zimmerman</li>
+            <li><span class="route-badge">110</span> Kitengela</li>
+            <li><span class="route-badge">46</span> Kawangware</li>
+            <li><span class="route-badge">118</span> Wangige</li>
+            <li><span class="route-badge">19C</span> Komarock</li>
+            <li><span class="route-badge">237</span> Thika Town</li>
+            <li><span class="route-badge">24</span> Karen</li>
+          </ul>
+          <ul class="ticker__list" role="list" aria-hidden="true">
+            <li><span class="route-badge">45</span> Githurai 45</li>
+            <li><span class="route-badge">34</span> JKIA Airport</li>
+            <li><span class="route-badge">111</span> Ngong Town</li>
+            <li><span class="route-badge">105</span> Kikuyu</li>
+            <li><span class="route-badge">58</span> Buruburu</li>
+            <li><span class="route-badge">44</span> Zimmerman</li>
+            <li><span class="route-badge">110</span> Kitengela</li>
+            <li><span class="route-badge">46</span> Kawangware</li>
+            <li><span class="route-badge">118</span> Wangige</li>
+            <li><span class="route-badge">19C</span> Komarock</li>
+            <li><span class="route-badge">237</span> Thika Town</li>
+            <li><span class="route-badge">24</span> Karen</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="directions" aria-labelledby="directions-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <p class="eyebrow">Step 1: pick a road</p>
+          <h2 id="directions-title">Which way out of town?</h2>
+          <p>Matatus in the CBD are grouped by the main road they take out of the city. Pick yours to see route numbers, stages and estimated fares.</p>
+        </div>
+
+        <!-- VERIFY: main stages listed on each direction card -->
+        <ul class="grid grid--3 direction-list" role="list">
+          <li class="direction-card direction-card--thika reveal">
+            <div class="direction-card__top">
+              <span class="route-badge route-badge--lg">45</span>
+              <span class="direction-card__compass">North-east</span>
+            </div>
+            <h3><a class="direction-card__link" href="routes.html#thika-road">Thika Road</a></h3>
+            <p>Roysambu, Kasarani, Zimmerman, Githurai, Ruiru and Thika town.</p>
+            <p class="direction-card__meta"><strong>Main stages:</strong> Odeon, Archives</p>
+            <span class="direction-card__cta" aria-hidden="true">See routes and fares <span class="button__arrow">&rarr;</span></span>
+          </li>
+          <li class="direction-card direction-card--mombasa reveal">
+            <div class="direction-card__top">
+              <span class="route-badge route-badge--lg">34</span>
+              <span class="direction-card__compass">South-east</span>
+            </div>
+            <h3><a class="direction-card__link" href="routes.html#mombasa-road">Mombasa Road</a></h3>
+            <p>South B, Pipeline, Syokimau, JKIA airport and Kitengela.</p>
+            <p class="direction-card__meta"><strong>Main stages:</strong> Railways, Kencom, Bus Station</p>
+            <span class="direction-card__cta" aria-hidden="true">See routes and fares <span class="button__arrow">&rarr;</span></span>
+          </li>
+          <li class="direction-card direction-card--ngong reveal">
+            <div class="direction-card__top">
+              <span class="route-badge route-badge--lg">111</span>
+              <span class="direction-card__compass">South-west</span>
+            </div>
+            <h3><a class="direction-card__link" href="routes.html#ngong-road">Ngong Road</a></h3>
+            <p>Kibera, Kawangware, Karen and Ngong town.</p>
+            <p class="direction-card__meta"><strong>Main stages:</strong> Ambassadeur, Kencom</p>
+            <span class="direction-card__cta" aria-hidden="true">See routes and fares <span class="button__arrow">&rarr;</span></span>
+          </li>
+          <li class="direction-card direction-card--waiyaki reveal">
+            <div class="direction-card__top">
+              <span class="route-badge route-badge--lg">105</span>
+              <span class="direction-card__compass">West</span>
+            </div>
+            <h3><a class="direction-card__link" href="routes.html#waiyaki-way">Waiyaki Way</a></h3>
+            <p>Westlands, Kangemi, Uthiru, Wangige, Kikuyu and Limuru.</p>
+            <p class="direction-card__meta"><strong>Main stages:</strong> Commercial, Koja</p>
+            <span class="direction-card__cta" aria-hidden="true">See routes and fares <span class="button__arrow">&rarr;</span></span>
+          </li>
+          <li class="direction-card direction-card--jogoo reveal">
+            <div class="direction-card__top">
+              <span class="route-badge route-badge--lg">58</span>
+              <span class="direction-card__compass">East</span>
+            </div>
+            <h3><a class="direction-card__link" href="routes.html#jogoo-road">Jogoo Road</a></h3>
+            <p>Buruburu, Donholm, Umoja and Komarock in Eastlands.</p>
+            <p class="direction-card__meta"><strong>Main stages:</strong> Bus Station, Commercial</p>
+            <span class="direction-card__cta" aria-hidden="true">See routes and fares <span class="button__arrow">&rarr;</span></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--paper" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-title">Three steps to your matatu</h2>
+        </div>
+        <ol class="grid grid--3 steps" role="list">
+          <li class="reveal">
+            <h3>Pick your road</h3>
+            <p>Every route leaves town along one of five main roads. Choose the one that heads towards your area.</p>
+          </li>
+          <li class="reveal">
+            <h3>Find the stage</h3>
+            <p>Each route boards at a named CBD stage. Use the stage page to see the street and the landmarks around it.</p>
+          </li>
+          <li class="reveal">
+            <h3>Check the fare</h3>
+            <p>Look for the route number on the windscreen, then confirm the fare with the conductor before you sit down.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="section">
+      <div class="container">
+        <aside class="callout reveal" aria-labelledby="callout-title">
+          <svg class="callout__icon" viewBox="0 0 72 72" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="64" height="48" rx="8" fill="#1B1B1F"/>
+            <rect x="33" y="52" width="6" height="16" fill="#1B1B1F"/>
+            <text x="36" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#FFC145">?</text>
+          </svg>
+          <h2 id="callout-title">New to matatus?</h2>
+          <p>Learn how to pay the conductor, when fares go up and how to get the matatu to stop at your stage.</p>
+          <a class="button button--ink" href="guide.html">Read the commuter guide <span class="button__arrow" aria-hidden="true">&rarr;</span></a>
+        </aside>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer on-dark">
