@@ -5,14 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CBD stages | StageFinder Nairobi</title>
   <meta name="description" content="Where to find the main matatu stages in the Nairobi CBD, with nearby landmarks and the routes each one serves.">
+  <meta name="theme-color" content="#1B1B1F">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-  <main id="main">
-    <h1>Matatu stages in the CBD</h1>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header on-dark">
+    <div class="site-header__inner container">
+      <a class="wordmark" href="index.html">
+        <span class="wordmark__badge" aria-hidden="true">SF</span>
+        <span class="wordmark__text"><span class="wordmark__name">Stage<span>Finder</span></span> <small>Nairobi</small></span>
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+      <label for="nav-toggle" class="nav-toggle__label">
+        <span class="nav-toggle__icon" aria-hidden="true"></span>
+        Menu
+      </label>
+
+      <nav class="site-nav" aria-label="Main">
+        <ul class="site-nav__list" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="routes.html">Routes</a></li>
+          <li><a href="stages.html" aria-current="page">Stages</a></li>
+          <li><a href="guide.html">Commuter guide</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="road-stripe" aria-hidden="true"></div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <header class="page-intro">
+      <div class="container">
+        <p class="eyebrow">CBD stages</p>
+        <h1>Matatu stages in the CBD</h1>
+        <p class="lead">Where each stage is, what is nearby and which routes leave from it.</p>
+      </div>
+    </header>
   </main>
+
+  <footer class="site-footer on-dark">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <h2>StageFinder Nairobi</h2>
+          <p>A simple guide to matatu stages, routes and fares in the Nairobi CBD, made for people who are new to the city.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h2>Explore</h2>
+          <ul class="footer-links" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="routes.html">Routes and fares</a></li>
+            <li><a href="stages.html">CBD stages</a></li>
+            <li><a href="guide.html">Commuter guide</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Send feedback</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Good to know</h2>
+          <p>Fares shown on this site are estimates and change with time of day, weather and demand. Always confirm the fare with the conductor before you board.</p>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; 2026 StageFinder Nairobi. A course project by Cyril Katua.</p>
+        <p>Last updated <time datetime="2026-10-28">28 October 2026</time></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
