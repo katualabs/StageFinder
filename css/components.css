@@ -1193,3 +1193,239 @@ a.route-badge:hover {
 .faq__answer {
   padding: 0 var(--space-m) var(--space-m);
 }
+
+/* --------------------------------------------------------------------------
+   11. About page: prose, fact card
+   -------------------------------------------------------------------------- */
+.prose > * + * {
+  margin-block-start: var(--space-xl);
+}
+
+.prose > section {
+  --flow-space: var(--space-s);
+}
+
+.side-stack {
+  display: grid;
+  gap: var(--space-m);
+}
+
+@media (min-width: 64em) {
+  .side-stack {
+    position: sticky;
+    top: var(--space-m);
+  }
+}
+
+.fact-card {
+  padding: var(--space-m);
+  border-radius: var(--radius-l);
+  background-color: var(--color-paper);
+  box-shadow: var(--shadow-s);
+  border-top: 0.5rem solid var(--color-stage);
+}
+
+.fact-list {
+  display: grid;
+}
+
+.fact-list div {
+  display: grid;
+  gap: 0.15rem;
+  padding-block: var(--space-xs);
+  border-bottom: 1px dashed var(--color-line);
+}
+
+.fact-list div:last-child {
+  border-bottom: 0;
+}
+
+.fact-list dt {
+  font-size: var(--step--1);
+  color: var(--color-ink-soft);
+}
+
+.fact-list dd {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   12. Contact form
+   -------------------------------------------------------------------------- */
+.form {
+  display: grid;
+  gap: var(--space-m);
+  padding: var(--space-m);
+  border-radius: var(--radius-l);
+  background-color: var(--color-paper);
+  box-shadow: var(--shadow-m);
+}
+
+@media (min-width: 40em) {
+  .form {
+    padding: var(--space-xl);
+  }
+}
+
+.form__intro,
+.form__note {
+  font-size: var(--step--1);
+  color: var(--color-ink-soft);
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.field label,
+.field legend {
+  font-weight: 700;
+}
+
+.field legend {
+  margin-bottom: 0.4rem;
+  padding: 0;
+}
+
+.req,
+.opt {
+  font-weight: 400;
+  font-size: var(--step--1);
+  color: var(--color-ink-soft);
+}
+
+.field__hint {
+  font-size: var(--step--1);
+  color: var(--color-ink-soft);
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.65rem 0.9rem;
+  border: 2px solid var(--color-line-strong);
+  border-radius: var(--radius-m);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  line-height: 1.4;
+}
+
+.field textarea {
+  min-height: 9rem;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #6B6B73;
+  opacity: 1;
+}
+
+.field input:hover,
+.field textarea:hover {
+  border-color: var(--color-ink);
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible {
+  border-color: var(--color-ink);
+  outline: 3px solid var(--color-signal);
+  outline-offset: 0;
+  box-shadow: 0 0 0 5px var(--color-ink);
+}
+
+/* Validation feedback only after the user has typed something */
+.field__error {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--color-route-ink);
+}
+
+.field__error::before {
+  content: "!";
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background-color: var(--color-route-ink);
+  color: var(--color-paper);
+  font-size: 0.8rem;
+}
+
+.field input:not(:placeholder-shown):invalid,
+.field textarea:not(:placeholder-shown):invalid {
+  border-color: var(--color-route-ink);
+  background-color: #FFF7F4;
+}
+
+.field input:not(:placeholder-shown):invalid ~ .field__error,
+.field textarea:not(:placeholder-shown):invalid ~ .field__error {
+  display: flex;
+}
+
+.field input:not(:placeholder-shown):valid,
+.field textarea:not(:placeholder-shown):valid {
+  border-color: var(--color-stage-ink);
+}
+
+/* Radio and checkbox choices with large tap targets */
+.choices {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+@media (min-width: 40em) {
+  .choices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 48px;
+  padding: 0.4rem 0.9rem;
+  border: 2px solid var(--color-line);
+  border-radius: var(--radius-m);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.choice:hover {
+  border-color: var(--color-ink);
+}
+
+.choice:has(input:checked) {
+  border-color: var(--color-ink);
+  background-color: #FFF3D6;
+}
+
+.choice input {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  accent-color: var(--color-stage-ink);
+}
+
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s) var(--space-m);
+}
