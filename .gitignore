@@ -9,7 +9,6 @@ desktop.ini
 *.swp
 *~
 
-# Local tooling
-.claude/
+# Local tooling and logs
 node_modules/
 *.log

@@ -19,14 +19,14 @@
   --color-paper: #FFFFFF;        /* card surface */
   --color-asphalt: #2A2A31;      /* dark panels, road art */
   --color-ink-soft: #4A4A52;     /* secondary text: 7.8:1 on road */
-  --color-route-ink: #B83A15;    /* route colour for text: 5.2:1 on road */
+  --color-route-ink: #B83A15;    /* route colour for text: 5.1:1 on road */
   --color-stage-ink: #11634F;    /* stage colour for text: 6.4:1 on road */
   --color-sky: #2F5D9E;          /* fifth direction accent: 6.6:1 with white */
   --color-line: #D8D1C1;         /* decorative dividers only, never text */
-  --color-line-strong: #6E6A61;  /* form borders: 4.9:1 on paper */
+  --color-line-strong: #6E6A61;  /* form borders: 5.4:1 on paper */
 
-  /* Pairs: ink on road 15.3:1 | ink on signal 10.6:1 | ink on route 4.7:1
-     white on stage 4.8:1 | road on ink 15.3:1 | signal on ink 10.6:1 */
+  /* Pairs: ink on road 15.2:1 | ink on signal 10.6:1 | ink on route 4.7:1
+     white on stage 4.8:1 | road on ink 15.2:1 | signal on ink 10.6:1 */
 
   /* Focus ring (swapped to signal on dark surfaces) */
   --focus-ring: var(--color-ink);
@@ -134,8 +134,7 @@ table {
   border-collapse: collapse;
 }
 
-ul[class],
-ol[class] {
+:where(ul[class], ol[class]) {
   list-style: none;
   padding: 0;
 }
@@ -289,7 +288,7 @@ hr {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;

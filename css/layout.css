@@ -8,8 +8,10 @@
    1. Containers and sections
    -------------------------------------------------------------------------- */
 .container {
-  width: min(100% - 2 * var(--gutter), var(--container));
+  width: 100%;
+  max-width: calc(var(--container) + 2 * var(--gutter));
   margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
 .section {
@@ -272,6 +274,7 @@ main:focus {
   right: 0;
   background-color: var(--color-ink);
   border-top: 1px solid rgb(244 241 234 / 0.12);
+  border-bottom: 3px solid var(--color-signal);
   box-shadow: var(--shadow-l);
   visibility: hidden;
   opacity: 0;
@@ -286,8 +289,10 @@ main:focus {
 
 .site-nav__list {
   display: grid;
-  width: min(100% - 2 * var(--gutter), var(--container));
+  width: 100%;
+  max-width: calc(var(--container) + 2 * var(--gutter));
   margin-inline: auto;
+  padding-inline: var(--gutter);
   padding-block: var(--space-xs) var(--space-m);
 }
 
@@ -317,7 +322,7 @@ main:focus {
   content: "";
   position: absolute;
   left: 0;
-  right: 0;
+  width: 2.5rem;
   bottom: 0.5rem;
   height: 3px;
   border-radius: 3px;
@@ -371,6 +376,8 @@ main:focus {
 
   .site-nav a::after {
     bottom: 0.25rem;
+    right: 0;
+    width: auto;
   }
 }
 

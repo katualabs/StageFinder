@@ -128,7 +128,7 @@ a.route-badge:hover {
   vertical-align: 0.1em;
 }
 
-/* Unverified data marker (white on route-ink: 5.9:1) */
+/* Unverified data marker (white on route-ink: 5.8:1) */
 .unverified {
   display: inline-flex;
   align-items: center;
@@ -1505,6 +1505,8 @@ a.route-badge:hover {
 
   .container {
     width: 100%;
+    max-width: none;
+    padding-inline: 0;
   }
 
   .section,
